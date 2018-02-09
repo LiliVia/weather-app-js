@@ -6,11 +6,11 @@ const urlCurrent = (city = 'Kiev') =>
   `${API_URL}/current?city=${city}&key=${API_KEY}`;
 
 //for 3 hourly on 5 days
-const urlDays = (city = 'Kiev', days = 5) =>
+const urlHourly = (city = 'Kiev', days = 5) =>
   `${API_URL}/forecast/3hourly?city=${city}&days=${days}&key=${API_KEY}`;
 
 //for daily to 7 days
-const urlWeek = (city = 'Kiev', days = 7) =>
+const urlDays = (city = 'Kiev', days = 7) =>
   `${API_URL}/forecast/daily?city=${city}&days=${days}&key=${API_KEY}`;
 
 const request = url =>
@@ -20,6 +20,12 @@ const request = url =>
 
 export const getCurrentWeather = city => request(urlCurrent(city));
 
-export const getDailyForecast = (city, days) => request(urlDays(city, days));
-
-export const getWeeklyForecast = (city, days) => request(urlWeek(city, days));
+export const getForecast = (city, days) => {
+  if (days <= 5) {
+    request(urlHourly(city, days));
+  } else if (days > 5 && days <= 16) {
+    request(urlDays(city, days));
+  } else {
+    return;
+  }
+};
