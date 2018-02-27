@@ -1,31 +1,47 @@
-const API_URL = 'https://api.weatherbit.io/v2.0';
-const API_KEY = '02fd99f29107456e914006fff00a5b9c'; // Weatherbit API key
+const form = document.getElementById('search');
+const get = document.querySelector('get');
+let point = document.getElementById('city');
+point = point.value ? point.value : 'kiev';
+console.log(point.value);
 
-//for current weather
-const urlCurrent = (city = 'Kiev') =>
-  `${API_URL}/current?city=${city}&key=${API_KEY}`;
+const BASE_URL = `https://api.weatherbit.io/v2.0/current?city=${point}&key=02fd99f29107456e914006fff00a5b9c`;
+// const API_KEY = '02fd99f29107456e914006fff00a5b9c';
+const host = document.getElementById('forecast');
 
-//for 3 hourly on 5 days
-const urlHourly = (city = 'Kiev', days = 5) =>
-  `${API_URL}/forecast/3hourly?city=${city}&days=${days}&key=${API_KEY}`;
+function getCurrentWeather(url) {
+  return fetch(url)
+    .then(resp => resp.json())
+    .then(weatherData => {
+      host.innerHTML = `
+            <h2>${weatherData.data[0].city_name}</h2>
+            <p>${weatherData.data[0].ob_time
+          .split(' ')[0]
+          .split('-')
+          .reverse()
+          .join('.')}</p>
+            <p>${getWeekday(weatherData.data[0].ob_time)}</p>
+            <p>${weatherData.data[0].weather.description}</p>
+            <p><img src=${srcIcon(weatherData.data[0].weather.icon)}></p>
+            <p>${weatherData.data[0].temp.toFixed(0)}&deg;C</p>
+            <p>feeling as ${weatherData.data[0].app_temp.toFixed(0)}&deg;C</p>
+          `;
 
-//for daily to 7 days
-const urlDays = (city = 'Kiev', days = 7) =>
-  `${API_URL}/forecast/daily?city=${city}&days=${days}&key=${API_KEY}`;
+    }).then(
+      () => console.log('Get weather'),
+      () => console.error('Failed'),
+  );
+}
 
-const request = url =>
-  fetch(url)
-    .then(resp => resp.json)
-    .catch(er => console.log('Request failed', er));
+const srcIcon = icon =>
+  `https://www.weatherbit.io/static/img/icons/${icon}.png`;
 
-export const getCurrentWeather = city => request(urlCurrent(city));
-
-export const getForecast = (city, days) => {
-  if (days <= 5) {
-    request(urlHourly(city, days));
-  } else if (days > 5 && days <= 16) {
-    request(urlDays(city, days));
-  } else {
-    return;
-  }
+const getWeekday = datetime => {
+  let weekday = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  let date = new Date(datetime).getDay();
+  return weekday[date];
 };
+
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  getCurrentWeather(BASE_URL);
+});
