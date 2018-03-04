@@ -45,3 +45,15 @@ input::placeholder {
   justify-content: center;
   align-items: center;
 }
+
+
+#empty{
+  width: 40%;
+  text-align: center;
+  color: #FFF176;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 1.9;
+  letter-spacing: 0.6px;
+  word-spacing: 1.3px;
+}

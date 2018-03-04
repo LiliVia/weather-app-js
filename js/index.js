@@ -1,11 +1,18 @@
 const form = document.getElementById('search');
-const get = document.querySelector('get');
-let point = document.getElementById('city');
-point = point.value ? point.value : 'kiev';
-console.log(point.value);
+const empty = document.getElementById('empty');
+const URL = 'https://api.weatherbit.io/v2.0';
+const KEY = '02fd99f29107456e914006fff00a5b9c';
 
-const BASE_URL = `https://api.weatherbit.io/v2.0/current?city=${point}&key=02fd99f29107456e914006fff00a5b9c`;
-// const API_KEY = '02fd99f29107456e914006fff00a5b9c';
+const cityWeather = () => {
+  let point = document.getElementById('city');
+  point = point.value.trim();
+  const url = `${URL}/current?city=${point}&key=${KEY}`;
+  console.log(url);
+  empty.classList.add = '';
+  getCurrentWeather(url);
+  point = '';
+}
+
 const host = document.getElementById('forecast');
 
 function getCurrentWeather(url) {
@@ -43,5 +50,5 @@ const getWeekday = datetime => {
 
 form.addEventListener("submit", e => {
   e.preventDefault();
-  getCurrentWeather(BASE_URL);
+  cityWeather();
 });
