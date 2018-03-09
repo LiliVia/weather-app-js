@@ -18,7 +18,7 @@ const cityForecast = () => {
   const url = `${URL}/forecast/daily?city=${point}&key=${KEY}&days=7`;
   empty.classList.add = '';
   point.innerHTML = '';
-  getForecast(renderdays, url);
+  getForecast(renderDays, url);
 }
 
 const getForecast = (render, url) => {
