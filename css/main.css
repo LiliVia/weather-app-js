@@ -36,7 +36,6 @@ input::placeholder {
   padding: 2em;
   margin: auto;
   width: 350px;
-  height: 500px;
   background: #BA68C8;
   color: darkslateblue;
   font-weight: 700;
@@ -45,7 +44,6 @@ input::placeholder {
   justify-content: center;
   align-items: center;
 }
-
 
 #empty{
   width: 40%;
@@ -56,4 +54,29 @@ input::placeholder {
   line-height: 1.9;
   letter-spacing: 0.6px;
   word-spacing: 1.3px;
+}
+
+.week ul {
+  list-style-type: none;
+  padding: 1.8em;
+  margin: 1em;
+  width: 90%;
+  background: #BA68C8;
+  color: #FFF176;
+  font-weight: 400;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.week li {
+  padding: 1em;
+  margin: 0.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid #8E24AA;
+  background-color: #8e24aa;
 }
