@@ -15,15 +15,15 @@
 
 <body>
     <form id="search">
-        <input type="text" id="city" placeholder="City">
-        <input type="submit" id="get" value="Get current weather"></input>
+        <input type="text" id="city" placeholder="City" required autofocus>
+        <input type="submit" id="get" value="get weather"></input>
     </form>
     <div id='forecast' class="demo">
         <p id='empty'>
             What good weather you want to know? :)
         </p>
     </div>
-    <div id="week-forecast"></div>
+    <div id="week-forecast-container" class="week"></div>
     <script src="js/index.js"></script>
 </body>
 
