@@ -17,7 +17,7 @@ html, body {
   justify-content: center;
 }
 
-input {
+input, input:focus {
   color: #FFF176;
   background: #8E24AA;
   padding: 1em;
@@ -26,6 +26,11 @@ input {
 
 input[type=submit] {
   cursor: pointer;
+}
+
+input:hover {
+  background: #FFF176;
+  color: #8E24AA;
 }
 
 input::placeholder {
@@ -56,17 +61,23 @@ input::placeholder {
   word-spacing: 1.3px;
 }
 
+.week-forecast {
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .week ul {
   list-style-type: none;
   padding: 1.8em;
   margin: 1em;
-  width: 90%;
   background: #BA68C8;
   color: #FFF176;
   font-weight: 400;
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
