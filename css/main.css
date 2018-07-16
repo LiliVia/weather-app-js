@@ -16,7 +16,7 @@ body {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  border: 2px solid #FFF176;
+  /* border: 2px solid #FFF176; */
 }
 
 input {
@@ -34,7 +34,7 @@ input[type=submit] {
 
 input:hover,
 input:focus {
-  background: #FFF176;
+  background: #f0d4ff;
   color: #8E24AA;
 }
 
@@ -45,8 +45,7 @@ input::placeholder {
 .demo {
   padding: 2em;
   margin: auto;
-  /* width: 350px; */
-  background: #BA68C8;
+  background: #d9bdff;
   color: darkslateblue;
   font-weight: 700;
   display: flex;
@@ -68,7 +67,7 @@ input::placeholder {
 
 .week-forecast {
   padding: 1em;
-  border: 2px solid #FFF176;
+  /* border: 2px solid #FFF176; */
   display: flex;
   justify-content: center;
   align-items: center;
