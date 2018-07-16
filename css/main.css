@@ -2,7 +2,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   background: #8E24AA;
@@ -13,34 +14,38 @@ html, body {
   margin: 0;
   padding: 2em;
   display: flex;
-  flex-flow: column no-wrap;
+  flex-flow: row wrap;
   justify-content: center;
+  border: 2px solid #FFF176;
 }
 
-input, input:focus {
+input {
   color: #FFF176;
-  background: #8E24AA;
+  text-align: center;
+  letter-spacing: 1.8px;
+  background: #BA68C8;
   padding: 1em;
-  border: 2px solid #BA68C8;
+  border: 2px solid #8E24AA;
 }
 
 input[type=submit] {
   cursor: pointer;
 }
 
-input:hover {
+input:hover,
+input:focus {
   background: #FFF176;
   color: #8E24AA;
 }
 
 input::placeholder {
-  color: #BA68C8;
+  color: #8E24AA;
 }
 
 .demo {
   padding: 2em;
   margin: auto;
-  width: 350px;
+  /* width: 350px; */
   background: #BA68C8;
   color: darkslateblue;
   font-weight: 700;
@@ -50,7 +55,7 @@ input::placeholder {
   align-items: center;
 }
 
-#empty{
+#empty {
   width: 40%;
   text-align: center;
   color: #FFF176;
@@ -63,6 +68,7 @@ input::placeholder {
 
 .week-forecast {
   padding: 1em;
+  border: 2px solid #FFF176;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -72,13 +78,13 @@ input::placeholder {
   list-style-type: none;
   padding: 1.8em;
   margin: 1em;
+  width: 90%;
   background: #BA68C8;
   color: #FFF176;
   font-weight: 400;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center;
 }
 
 .week li {
@@ -90,4 +96,8 @@ input::placeholder {
   align-items: center;
   border: 2px solid #8E24AA;
   background-color: #8e24aa;
+}
+
+p {
+  margin: 0;
 }
