@@ -1,1 +1,1 @@
-weather app for kottans course
+Weather app on vanillaJS with component approach
