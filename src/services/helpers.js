@@ -23,3 +23,5 @@ const storageCity = (key, city) => {
 
 export const recentStorage = (city) => storageCity('recent', city);
 export const favoriteStorage = (city) => storageCity('favorite', city)
+
+export const checkType = (item) => typeof item; 
